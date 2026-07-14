@@ -48,10 +48,9 @@ as a near-identical live fallback. To switch to real Proxima Nova Extra Bold:
 
 ## TODO before launch
 
-- [ ] **Memberships pricing** — replace the `$XX` placeholders in `src/pages/memberships.astro`.
+- [x] **Memberships pricing** — $65/mo + $100 sign-up, or $680 paid-in-full for 12 months.
 - [ ] **Location** — update "Coming Soon" in the Footer and Contact page when the address is set.
-- [ ] **Forms** — Contact and Free Pass forms currently open the visitor's email client
-      (mailto to join@force1trainingfacility.com). For direct submissions, wire them to
+- [ ] **Forms** — Contact and Free Pass forms are intentionally not wired up yet. Connect them to Formspree, Web3Forms, or a Cloudflare Pages Function when ready.
       Formspree, Web3Forms, or a Cloudflare Pages Function.
 - [ ] Swap in real gym photos in `public/images/` whenever ready — filenames are mapped
       in each page, so replacing a file updates the site.
