@@ -30,12 +30,7 @@ import Base from '../layouts/Base.astro';
       </div>
       <div>
         <h2>Claim Your <span class="accent">Pass</span></h2>
-        <!--
-          This form opens the visitor's email client with the request pre-filled.
-          To collect submissions without email, wire it to Formspree, Web3Forms,
-          or a Cloudflare Pages Function instead.
-        -->
-        <form class="form" id="pass-form" style="margin-top:2rem;">
+        <form class="form" id="pass-form" onsubmit="return false" style="margin-top:2rem;">
           <div>
             <label for="name">Full Name</label>
             <input type="text" id="name" name="name" required />
@@ -65,14 +60,4 @@ import Base from '../layouts/Base.astro';
     </div>
   </section>
 
-  <script>
-    document.getElementById('pass-form')?.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const f = e.target as HTMLFormElement;
-      const data = new FormData(f);
-      const subject = encodeURIComponent(`Free 7 Day Pass request — ${data.get('name')}`);
-      const body = encodeURIComponent(`Name: ${data.get('name')}\nEmail: ${data.get('email')}\nPhone: ${data.get('phone')}\nGoal: ${data.get('goal')}`);
-      window.location.href = `mailto:join@force1trainingfacility.com?subject=${subject}&body=${body}`;
-    });
-  </script>
 </Base>

@@ -34,12 +34,7 @@ import Base from '../layouts/Base.astro';
       </div>
       <div>
         <h2>Send A <span class="accent">Message</span></h2>
-        <!--
-          This form opens the visitor's email client with the message pre-filled.
-          To collect submissions without email, wire it to Formspree, Web3Forms,
-          or a Cloudflare Pages Function instead.
-        -->
-        <form class="form" id="contact-form" style="margin-top:2rem;">
+        <form class="form" id="contact-form" onsubmit="return false" style="margin-top:2rem;">
           <div>
             <label for="name">Name</label>
             <input type="text" id="name" name="name" required />
@@ -58,14 +53,4 @@ import Base from '../layouts/Base.astro';
     </div>
   </section>
 
-  <script>
-    document.getElementById('contact-form')?.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const f = e.target as HTMLFormElement;
-      const data = new FormData(f);
-      const subject = encodeURIComponent(`Website message from ${data.get('name')}`);
-      const body = encodeURIComponent(`Name: ${data.get('name')}\nEmail: ${data.get('email')}\n\n${data.get('message')}`);
-      window.location.href = `mailto:join@force1trainingfacility.com?subject=${subject}&body=${body}`;
-    });
-  </script>
 </Base>
