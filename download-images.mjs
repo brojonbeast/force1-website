@@ -4,7 +4,7 @@ import { mkdir, writeFile, access } from 'node:fs/promises';
 
 const base = 'https://d8j0ntlcm91z4.cloudfront.net/user_3613UOAFRnMDgu543w3Xc2287n8';
 const images = {
-  'logo.webp':          'hf_20260714_202711_2ed1978e-9b5f-4a9a-a5b7-5f8ff81efeba_min.webp',
+  'logo.webp':          'hf_20260714_211405_a23df8f2-8687-4927-a9c4-11e34f24e8ae_min.webp',
   'hero.webp':          'hf_20260714_202714_15ddff71-9fb9-4bd8-81e1-092b94f9d302_min.webp',
   'squat.webp':         'hf_20260714_202716_dde755e3-4bff-457e-8f0b-298224351096_min.webp',
   'machines.webp':      'hf_20260714_202717_5c8db27c-d491-4f65-b18d-16f76cc21e31_min.webp',
