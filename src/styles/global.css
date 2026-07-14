@@ -296,6 +296,7 @@ section { padding: 5rem 0; }
   flex-direction: column;
   gap: 1.25rem;
 }
+.price-card .btn { margin-top: auto; }
 .price-card.featured { border: 2px solid var(--red); position: relative; }
 .price-card.featured::before {
   content: "Most Popular";
