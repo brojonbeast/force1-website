@@ -1,0 +1,35 @@
+---
+import Base from '../layouts/Base.astro';
+
+const images = [
+  { src: '/images/facility-wide.webp', alt: 'Wide view of the Force1 warehouse training floor' },
+  { src: '/images/squat.webp', alt: 'Athlete squatting heavy in a power rack' },
+  { src: '/images/machines.webp', alt: 'Plate-loaded strength machine row' },
+  { src: '/images/sled.webp', alt: 'Sled push on the turf strip' },
+  { src: '/images/dumbbells.webp', alt: 'Heavy dumbbell rack area' },
+  { src: '/images/training.webp', alt: 'Coach working with an athlete on the deadlift' },
+  { src: '/images/chalk.webp', alt: 'Chalked hands ready for a heavy set' },
+  { src: '/images/hero.webp', alt: 'Force1 training floor under red lights' },
+];
+---
+<Base title="Gallery" description="Take a look inside Force1 Training Facility — warehouse-style strength and conditioning.">
+  <div class="page-hero" style="background-image:url('/images/facility-wide.webp')">
+    <div class="container">
+      <span class="kicker">Gallery</span>
+      <h1>Inside <span class="accent">The Warehouse</span></h1>
+    </div>
+  </div>
+
+  <section>
+    <div class="container">
+      <div class="gallery-grid">
+        {images.map((img) => (
+          <img src={img.src} alt={img.alt} loading="lazy" />
+        ))}
+      </div>
+      <p style="text-align:center; margin-top:2.5rem;">
+        Pictures don't do it justice. <a href="/free-pass/" class="accent">Come see it in person — free for 7 days.</a>
+      </p>
+    </div>
+  </section>
+</Base>

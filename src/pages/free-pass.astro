@@ -1,0 +1,78 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Free 7 Day Pass" description="Train free at Force1 Training Facility for 7 days. Claim your free pass today.">
+  <div class="page-hero" style="background-image:url('/images/chalk.webp')">
+    <div class="container">
+      <span class="kicker">Free 7 Day Pass</span>
+      <h1>One Week. <span class="accent">On Us.</span></h1>
+    </div>
+  </div>
+
+  <section>
+    <div class="container split" style="align-items:start;">
+      <div>
+        <h2>What You <span class="accent">Get</span></h2>
+        <div class="grid" style="margin-top:2rem; gap:1rem;">
+          <div class="card">
+            <h3>Full Facility Access</h3>
+            <p>Train on everything — racks, machines, dumbbells, turf. Nothing is off limits during your trial week.</p>
+          </div>
+          <div class="card">
+            <h3>7 Full Days</h3>
+            <p>Train during staffed hours (4am&ndash;12am, every day) as many times as you want for a full week.</p>
+          </div>
+          <div class="card">
+            <h3>Zero Pressure</h3>
+            <p>No contracts, no card on file, no hard sell. If Force1 is your kind of gym, you'll know by day two.</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h2>Claim Your <span class="accent">Pass</span></h2>
+        <!--
+          This form opens the visitor's email client with the request pre-filled.
+          To collect submissions without email, wire it to Formspree, Web3Forms,
+          or a Cloudflare Pages Function instead.
+        -->
+        <form class="form" id="pass-form" style="margin-top:2rem;">
+          <div>
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div>
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" required />
+          </div>
+          <div>
+            <label for="goal">Primary Goal</label>
+            <select id="goal" name="goal">
+              <option>Build Strength</option>
+              <option>Build Muscle</option>
+              <option>Conditioning / Athletics</option>
+              <option>Lose Fat</option>
+              <option>General Fitness</option>
+            </select>
+          </div>
+          <button type="submit" class="btn">Claim My Free 7 Day Pass</button>
+          <p style="font-size:0.85rem; color:var(--gray);">We'll reach out to confirm your start date. Questions? Call <a href="tel:+14095266108">(409) 526-6108</a>.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.getElementById('pass-form')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const f = e.target as HTMLFormElement;
+      const data = new FormData(f);
+      const subject = encodeURIComponent(`Free 7 Day Pass request — ${data.get('name')}`);
+      const body = encodeURIComponent(`Name: ${data.get('name')}\nEmail: ${data.get('email')}\nPhone: ${data.get('phone')}\nGoal: ${data.get('goal')}`);
+      window.location.href = `mailto:join@force1trainingfacility.com?subject=${subject}&body=${body}`;
+    });
+  </script>
+</Base>
